@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-family: Roboto ;
+  /* font-family: Roboto ; */
+
+  font-family: 'Roboto', sans-serif;
   background-color: radial-gradient(circle, rgba(2,0,36,1) 94%, rgba(54,205,236,1) 100%, rgba(2,19,56,1) 100%) !important;
 /* color: whitesmoke; */
 }

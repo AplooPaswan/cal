@@ -96,7 +96,7 @@ const App = () => {
 
                     <Stack direction="column" spacing={1} overflow="hidden">
 
-                        <Grid bgcolor="GrayText">
+                        <Grid bgcolor="">
                             <Grid mt={0} pt={0.3} sx={{
                                 width: '100%',
                                 height: '6vh',
@@ -104,23 +104,23 @@ const App = () => {
                                 color: 'rgb(2,0,36)',
                                 fontSize: 'xx-large',
                                 fontWeight: 'bold',
-                                bgcolor: 'GrayText',
-                                color: 'white',
+                                
+                                color: '',
                                 textAlign: 'right',
                                 // '&:hover': {
                                 //     backgroundColor: 'primary.main',
                                 //     opacity: [0.9, 0.8, 0.7],
                                 // },
                             }}>
-                                {value}
+                                {value} {'  '} {opn}
 
                             </Grid>
                             <Grid mt={1} sx={{
                                 width: '100%',
                                 height: '6vh',
                                 paddingRight: '10px',
-                                color: 'white',
-                                bgcolor: 'GrayText',
+                                // color: 'white',
+                                // bgcolor: 'GrayText',
                                 fontSize: 'xx-large',
                                 fontWeight: 'bold',
                                 textAlign: 'right',
@@ -129,7 +129,7 @@ const App = () => {
                                 //     opacity: [0.9, 0.8, 0.7],
                                 // },
                             }}>
-                                {opn}
+                               
 
                             </Grid>
                         </Grid>
