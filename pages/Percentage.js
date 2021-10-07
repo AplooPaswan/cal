@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
-import { TextField } from '@mui/material';
+import { Grid, TextField } from '@mui/material';
 
 function ValueLabelComponent(props) {
   const { children, value } = props;
@@ -112,7 +112,7 @@ export default function CustomizedSlider() {
   return (
     <Box sx={{ width: 4 / 4 }}>
 
-      <Box sx={{ m: 1 }} />
+      <Grid color="white" sx={{ m: 1 }} />
 
       <TextField
 
@@ -122,10 +122,10 @@ export default function CustomizedSlider() {
         type="number"
         color='secondary'
         maxRows={1}
-        backgroundColor='white'
+        // backgroundColor='white'
 
         InputLabelProps={{
-          style: { color: 'white' },
+          // style: { color: 'white' },
           shrink: true,
 
         }}
@@ -143,10 +143,10 @@ export default function CustomizedSlider() {
         type="number"
         color="primary"
         maxRows={1}
-        backgroundColor='white'
-        
+        // backgroundColor='white'
+
         InputLabelProps={{
-          style: { color: 'white' },
+          // style: { color: 'white' },
           shrink: true,
           bgcolor:"white",
 
