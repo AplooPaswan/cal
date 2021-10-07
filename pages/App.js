@@ -1,11 +1,16 @@
 import { Button, Grid, Stack } from '@mui/material'
 import Box from '@mui/material/Box';
-import React from 'react'
+import React,{ useState } from 'react'
 import CustomizedSlider from './Percentage';
 
 const App = () => {
 
-
+    const [value, setValue] = useState(0)
+    const [opn, setOpn] = useState('')
+    function setClear() {
+        setValue(0)
+        setOpn('')
+    }
     function Cal( props){
 
         switch (props) {
@@ -46,8 +51,8 @@ const App = () => {
 
 
     return (
-        <>
-            <Stack direction="row" width={4/4} spacing={{ xs: 0, md: 1 }}>
+        <Grid>
+            <Stack direction="row" width={4/4} spacing={{ xs: 0, md: 1 }} >
 
                 <Box
                     sx={{
@@ -67,23 +72,23 @@ const App = () => {
                 {/* ============================================================================================================== */}
 
 
-                <Box
+                <Grid
                     sx={{
                         padding:'-10px',
                         margin:'-10px',
                         width: { xs: 4 / 4, md: 1 / 4, lg: 2 / 4 },
                         height: '98vh',
-                        // bgcolor: 'rgb(2,0,36)',
-                        bgcolor:'linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(2,19,56,1) 90%, rgba(0,212,255,1) 100%)',
+                        bgcolor: 'rgb(2,0,36)',
+                        // bgcolor:'linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(2,19,56,1) 90%, rgba(0,212,255,1) 100%)',
                         // '&:hover': {
                         //     backgroundColor: 'primary.main',
                         //     opacity: [0.9, 0.8, 0.7],
                         // },
                     }}
                 >
-                    <Box>
+                    <Grid>
                         <CustomizedSlider />
-                    </Box>
+                    </Grid>
 
 
                     {/* ============================================== */}
@@ -98,21 +103,23 @@ const App = () => {
                             color: 'rgb(2,0,36)',
                             fontSize: 'xx-large',
                             fontWeight: 'bold',
-                            
+                            bgcolor: 'rgb(2,0,36)',
+                            color:'white',
                             textAlign:'right',
                             // '&:hover': {
                             //     backgroundColor: 'primary.main',
                             //     opacity: [0.9, 0.8, 0.7],
                             // },
                         }}>
-                            123456789
+                            {value}
                             
                         </Grid>
-                        <Box mt={1}  sx={{
+                        <Grid mt={1}  sx={{
                             width: '100%',
                             height: '6vh',
                             paddingRight:'10px',
-                            // color: 'white',
+                            color: 'white',
+                            bgcolor: 'rgb(2,0,36)',
                             fontSize: 'xx-large',
                             fontWeight: 'bold',
                             textAlign:'right',
@@ -121,47 +128,47 @@ const App = () => {
                             //     opacity: [0.9, 0.8, 0.7],
                             // },
                         }}>
-                            Total
+                            {opn}
                             
-                        </Box>
+                        </Grid>
 
                         <Stack  pt={1} justifyContent="center" sx={{ width: 4 / 4,bgcolor:'' }} spacing={1} >
 
                             <Box sx={{ width: 4 / 4, display: 'flex', height: '', bgcolor: '' }} justifyContent="space-around" >
-                                <Button value='c' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large',color:'red' }} p={5} variant="outlined"> C </Button>
-                                <Button value='()' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> ( ) </Button>
-                                <Button value='%' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> % </Button>
-                                <Button value='/' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> / </Button>
+                                <Button value='c' onClick={(e)=>{ setClear() }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large',color:'red' }} p={5} variant="outlined"> C </Button>
+                                <Button value='( )' onClick={(e)=>{ setOpn(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> ( ) </Button>
+                                <Button value='%' onClick={(e)=>{ setOpn(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> % </Button>
+                                <Button value='/' onClick={(e)=>{ setOpn(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> / </Button>
                             </Box>
                             <Box sx={{ width: 4 / 4, display: 'flex' }} justifyContent="space-around" >
-                                <Button value='7' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 7 </Button>
-                                <Button value='8' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 8 </Button>
-                                <Button value='9' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 9 </Button>
-                                <Button value='*' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> * </Button>
+                                <Button value='7' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 7 </Button>
+                                <Button value='8' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 8 </Button>
+                                <Button value='9' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 9 </Button>
+                                <Button value='*' onClick={(e)=>{ setOpn(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> * </Button>
                             </Box>
                             <Box sx={{ width: 4 / 4, display: 'flex' }} justifyContent="space-around" >
-                                <Button value='6' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 6 </Button>
-                                <Button value='5' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 5 </Button>
-                                <Button value='4' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 4 </Button>
-                                <Button value='-' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> - </Button>
+                                <Button value='6' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 6 </Button>
+                                <Button value='5' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 5 </Button>
+                                <Button value='4' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 4 </Button>
+                                <Button value='-' onClick={(e)=>{ setOpn(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> - </Button>
                             </Box>
                             <Box sx={{ width: 4 / 4, display: 'flex' }} justifyContent="space-around" >
-                                <Button value='1' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 1 </Button>
-                                <Button value='2' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 2 </Button>
-                                <Button value='3' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 3 </Button>
-                                <Button value='+' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> + </Button>
+                                <Button value='1' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 1 </Button>
+                                <Button value='2' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 2 </Button>
+                                <Button value='3' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 3 </Button>
+                                <Button value='+' onClick={(e)=>{ setOpn(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> + </Button>
                             </Box>
                             <Box sx={{ width: 4 / 4, display: 'flex' }} justifyContent="space-around" >
-                                <Button value='+/-' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> +/- </Button>
-                                <Button value='0' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 0 </Button>
-                                <Button value='.' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'xxx-large',paddingBottom:'32px' }} p={5} variant="outlined"> . </Button>
-                                <Button value='=' onClick={(e)=>{ alert(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'xxx-large',color:'white',bgcolor:'green' }} p={5} variant="outlined"> = </Button>
+                                <Button value='+/-' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> +/- </Button>
+                                <Button value='0' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'x-large' }} p={5} variant="outlined"> 0 </Button>
+                                <Button value='.' onClick={(e)=>{ setValue(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'xxx-large',paddingBottom:'32px' }} p={5} variant="outlined"> . </Button>
+                                <Button value='=' onClick={(e)=>{ setOpn(e.target.value) }} sx={{ borderRadius: '50px', padding: '5px', height: '60px', fontSize: 'xxx-large',color:'white',bgcolor:'green' }} p={5} variant="outlined"> = </Button>
                             </Box>
                         </Stack>
                     </Stack>
-                </Box>
+                </Grid>
             </Stack>
-        </>
+        </Grid>
     )
 }
 

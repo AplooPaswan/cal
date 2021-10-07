@@ -125,6 +125,7 @@ export default function CustomizedSlider() {
         backgroundColor='white'
 
         InputLabelProps={{
+          style: { color: 'white' },
           shrink: true,
 
         }}
@@ -135,16 +136,20 @@ export default function CustomizedSlider() {
       <br />
 
       <TextField
+
         fullWidth
         id="%"
         label="%"
         type="number"
-        color='secondary'
+        color="primary"
         maxRows={1}
         backgroundColor='white'
-        // disabled={true}
+        
         InputLabelProps={{
+          style: { color: 'white' },
           shrink: true,
+          bgcolor:"white",
+
 
         }}
 
