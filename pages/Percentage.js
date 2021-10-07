@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Slider, { SliderThumb } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
@@ -7,15 +7,23 @@ import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
 import { Grid, TextField } from '@mui/material';
 
+
+
+
+
 function ValueLabelComponent(props) {
+
   const { children, value } = props;
 
   return (
     <Tooltip enterTouchDelay={0} placement="top" title={value}>
-      {children}
+      {children}%
     </Tooltip>
   );
 }
+
+
+
 
 ValueLabelComponent.propTypes = {
   children: PropTypes.element.isRequired,
@@ -88,9 +96,10 @@ function AirbnbThumbComponent(props) {
   // function Calculate(amount,percentage){
   //   return console.log(amount*percentage/100)
   // }
-  function Calculate(props) {
-     console.log(props.amount)
-  }
+  
+
+
+
 
 
   return (
@@ -109,6 +118,20 @@ AirbnbThumbComponent.propTypes = {
 
 
 export default function CustomizedSlider() {
+  
+  const [amount, setAmount] = useState(0)
+  const [percentage, setPercentage] = useState(0)
+  
+  function Calculate(props) {
+
+    // let amount=document.getElementById('amount').value;
+    // let per=document.getElementById('percenatge').value;
+      
+    return setResult(props)  
+  }
+
+
+
   return (
     <Box sx={{ width: 4 / 4 }}>
 
@@ -117,13 +140,12 @@ export default function CustomizedSlider() {
       <TextField
 
         fullWidth
-        onChange={(e) => (console.log(e.target.value))}
+        id='amount'
+        onChange={(e)=>{setAmount(e.target.value)}}
         label="Principal Amount"
         type="number"
         color='secondary'
         maxRows={1}
-        // backgroundColor='white'
-
         InputLabelProps={{
           // style: { color: 'white' },
           shrink: true,
@@ -143,10 +165,8 @@ export default function CustomizedSlider() {
         type="number"
         color="primary"
         maxRows={1}
-        // backgroundColor='white'
-
+        value={percentage*amount/100}
         InputLabelProps={{
-          // style: { color: 'white' },
           shrink: true,
           bgcolor:"white",
 
@@ -158,18 +178,9 @@ export default function CustomizedSlider() {
       <PrettoSlider
         valueLabelDisplay="auto"
         aria-label="pretto slider"
-        defaultValue={10 }
-        // step={0.1}
-        // marks
-        // min={0.02}
-        // max={10000}
-        onc
-        onChange={(e) => {
-
-          document.getElementById('%').value = (e.target.value)
-          // this.Calculate(props)
-          
-          }}
+        id="percenatge"
+        defaultValue={5}
+        onChange={(e) => { setPercentage(e.target.value)  }}
       />
 
     </Box>
