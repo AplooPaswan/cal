@@ -165,7 +165,7 @@ export default function CustomizedSlider() {
         type="number"
         color="primary"
         maxRows={1}
-        value={percentage*amount/100}
+        value={percentage*amount/100+amount}
         InputLabelProps={{
           shrink: true,
           bgcolor:"white",
